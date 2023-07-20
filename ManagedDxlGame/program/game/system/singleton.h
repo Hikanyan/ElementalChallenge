@@ -4,25 +4,16 @@
 
 // シングルトンを実現するテンプレートクラス
 template <typename T>
-class singleton {
+class Singleton {
 public:
-    // インスタンスを取得する
-    static T* getInstance() {
-        static T* instance = nullptr ; // スレッドセーフなシングルトン
-        if( !instance )
-        {
-            instance = new T() ;
-        }
+    static T& GetInstance() {
+        static T instance; // C++11以降でスレッドセーフなシングルトン
         return instance;
     }
-    // インスタンスを破棄する
-    static void destroyInstance() {
-        delete getInstance();
-    }
-    
+
 protected:
-    singleton() {} // プライベートコンストラクタを使って外部からのインスタンス生成を防ぐ
-    singleton(const singleton&) = delete; // コピーを禁止
-    singleton& operator=(const singleton&) = delete; // 代入演算子を禁止
+    Singleton() {} // プライベートコンストラクタを使って外部からのインスタンス生成を防ぐ
+    Singleton(const Singleton&) = delete; // コピーを禁止
+    Singleton& operator=(const Singleton&) = delete; // 代入演算子を禁止
 };
 
