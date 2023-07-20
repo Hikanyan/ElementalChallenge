@@ -2,7 +2,7 @@
 #include <string>
 #include "../dxlib_ext/dxlib_ext.h"
 #include "gm_main.h"
-#include "singleton.h"
+#include "system/singleton.h"
 
 
 //------------------------------------------------------------------------------------------------------------
@@ -16,7 +16,7 @@ void gameStart(){
 // ñàÉtÉåÅ[ÉÄé¿çsÇ≥ÇÍÇ‹Ç∑
 void gameMain(float delta_time) {
 	DrawStringEx(570, 300, -1, "hello wolrd");
-	MySingleton::GetInstance().DoSomething();
+	
 }
 
 //------------------------------------------------------------------------------------------------------------
