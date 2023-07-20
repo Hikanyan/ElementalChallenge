@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "singleton.h"
 
-class game_manager : public Singleton<game_manager>
+class game_manager : public singleton<game_manager>
 {
 private:
     
