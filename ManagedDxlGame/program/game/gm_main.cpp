@@ -4,7 +4,7 @@
 #include "gm_main.h"
 #include "system/game_manager.h"
 #include "system/singleton.h"
-
+#include "entity/entity_controller.h"
 
 //------------------------------------------------------------------------------------------------------------
 // ゲーム起動時に１度だけ実行されます

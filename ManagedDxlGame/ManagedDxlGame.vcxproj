@@ -166,6 +166,9 @@
     <ClCompile Include="program\dxlib_ext\dxlib_ext_mesh.cpp" />
     <ClCompile Include="program\dxlib_ext\dxlib_ext_texture.cpp" />
     <ClCompile Include="program\dxlib_ext\OBJLoader.cpp" />
+    <ClCompile Include="program\game\entity\enemy\enemy.cpp" />
+    <ClCompile Include="program\game\entity\entity.cpp" />
+    <ClCompile Include="program\game\entity\entity_controller.cpp" />
     <ClCompile Include="program\game\entity\player\game_player.cpp" />
     <ClCompile Include="program\game\gm_main.cpp" />
     <ClCompile Include="program\game\system\game_manager.cpp">
@@ -343,6 +346,9 @@
     <ClInclude Include="program\dxlib_ext\dxlib_ext_render_param.h" />
     <ClInclude Include="program\dxlib_ext\dxlib_ext_texture.h" />
     <ClInclude Include="program\dxlib_ext\OBJLoader.h" />
+    <ClInclude Include="program\game\entity\enemy\enemy.h" />
+    <ClInclude Include="program\game\entity\entity.h" />
+    <ClInclude Include="program\game\entity\entity_controller.h" />
     <ClInclude Include="program\game\entity\player\game_player.h" />
     <ClInclude Include="program\game\gm_main.h" />
     <ClInclude Include="program\game\system\game_manager.h" />
@@ -367,9 +373,6 @@
     <ClInclude Include="program\library\tnl_using.h" />
     <ClInclude Include="program\library\tnl_util.h" />
     <ClInclude Include="program\library\tnl_vector.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="program\game\entity\enemy\" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
