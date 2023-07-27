@@ -33,7 +33,7 @@ public:
 		clear();
 	}
 	// push_backは、末尾に要素を追加します。
-	void push_back(const T& element) {
+	void push_back(T element) {
 		//新しいノードを作成します。
 		Node* node = new Node(element);
 		//先頭ノードがない場合
@@ -49,7 +49,7 @@ public:
 		}
 	}
 	// pop_backは、末尾の要素を削除します。
-	void push_front(const T& element) {
+	void push_front(T element) {
 		//新しいノードを作成します。
 		Node* node = new Node(element);
 		//先頭ノードがない場合
@@ -142,6 +142,36 @@ public:
 		} while (swapped);
 	}
 
+	// size() メソッドはリスト内の要素数を返します。
+	size_t size() const {
+		size_t count = 0;
+		Node* current = head;
+		while (current != nullptr) {
+			count++;
+			current = current->next;
+		}
+		return count;
+	}
+
+	// operator[] をオーバーロードして、指定したインデックスの要素を取得します。
+	T operator[](int index) const {
+		if (index < 0 || index >= size()) {
+			throw std::out_of_range("Index out of range");
+		}
+
+		Node* current = head;
+		int count = 0;
+		while (current != nullptr) {
+			if (count == index) {
+				return current->data;
+			}
+			current = current->next;
+			count++;
+		}
+
+		// 通常ここには到達しないはずですが、念のため例外をスローします。
+		throw std::out_of_range("Index out of range");
+	}
 
 	//displayListは、要素を表示します。
 	void displayList() const {
