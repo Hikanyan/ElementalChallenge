@@ -244,6 +244,7 @@
       <SDLCheck>true</SDLCheck>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="program\game\system\list.cpp" />
     <ClCompile Include="program\game\system\singleton.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -352,6 +353,7 @@
     <ClInclude Include="program\game\entity\player\game_player.h" />
     <ClInclude Include="program\game\gm_main.h" />
     <ClInclude Include="program\game\system\game_manager.h" />
+    <ClInclude Include="program\game\system\list.h" />
     <ClInclude Include="program\game\system\singleton.h" />
     <ClInclude Include="program\library\json11.hpp" />
     <ClInclude Include="program\library\stb_image.h" />
