@@ -26,7 +26,7 @@ private:
 	Node* tail = nullptr;
 
 public:
-	//イテレータ
+	//イテレータとは、コンテナの要素に順番にアクセスするためのものです。
 	my_list() : head(nullptr), tail(nullptr) {}
 	//コンストラクタ
 	~my_list() {
