@@ -1,4 +1,8 @@
 ﻿#include "game_manager.h"
+#include "../dxlib_ext/dxlib_ext.h"
+#include "../entity/entity.h"
+#include "../entity/entity_controller.h"
+
 //Gameの状態管理を行う
 // Sceneの遷移、Player、Enemy、Itemの生成、削除などを行う
 //ファザードパターンを使用する

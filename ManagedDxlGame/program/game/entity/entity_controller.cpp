@@ -3,6 +3,10 @@
 #include "player/game_player.h"
 #include "enemy/enemy.h"
 
+//fazade patternを使用する
+//singletonを使用する
+
+
 void entity_controller::initialize()
 {
     game_player* player = new game_player(100, 10);
