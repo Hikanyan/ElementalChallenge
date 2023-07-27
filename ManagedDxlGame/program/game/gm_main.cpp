@@ -17,7 +17,6 @@ void gameStart(){
 //------------------------------------------------------------------------------------------------------------
 // –ˆƒtƒŒ[ƒ€Às‚³‚ê‚Ü‚·
 void gameMain(float delta_time) {
-	DrawStringEx(570, 300, -1, "hello wolrd");
 	game_manager::getInstance()->gameMain(delta_time);
 }
 

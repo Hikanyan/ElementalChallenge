@@ -23,11 +23,16 @@ void game_manager::gameStart() {
     //ゲームの状態をInitにする
     //ゲームの初期化を行う
     //ゲームの初期化が終わったらゲームの状態をMainにする
+    entity_controller::getInstance()->gameStart();
 }
 void game_manager::gameMain(float delta_time) {
     //ゲームのメインループ
     //ゲームの状態がMainの間はゲームのメインループを回す
     //ゲームのメインループが終わったらゲームの状態をEndにする
+
+    entity_controller::getInstance()->update(delta_time);
+    entity_controller::getInstance()->draw();
+    
 }
 void game_manager::gameEnd() {
     //ゲームの終了

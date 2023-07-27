@@ -2,7 +2,8 @@
 #include "entity.h"
 #include "../dxlib_ext/dxlib_ext.h"
 #include "../system/list.h"
-class entity_controller
+#include "../system/singleton.h"
+class entity_controller : public singleton<entity_controller>
 {
 private:
     void initialize();
@@ -18,8 +19,8 @@ public:
         target->receiveDamage(amount);
     }
     //my_listでNodeをポインタで持つので、deleteする必要がない。
-    void addEntity(const entity& entity) {
+    void addEntity(entity* entity) {
         entityList.push_back(entity);
     }
-    my_list<entity> entityList;
+    my_list<entity*> entityList;
 };

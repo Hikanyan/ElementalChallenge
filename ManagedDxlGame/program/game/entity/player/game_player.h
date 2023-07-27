@@ -12,7 +12,7 @@ public:
         // transformの初期値を設定
         entityTransform.position = tnl::Vector3(DXE_WINDOW_WIDTH / 2, DXE_WINDOW_HEIGHT * 0.8, 0);
         entityTransform.rotation = tnl::Vector3(0, 0, 0);
-        entityTransform.scale = tnl::Vector3(5, 5, 1);
+        entityTransform.scale = tnl::Vector3(100, 50, 1);
 
         move_speed = 5;
     }
