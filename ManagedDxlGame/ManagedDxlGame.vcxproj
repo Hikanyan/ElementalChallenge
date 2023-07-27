@@ -321,6 +321,7 @@
     <ClCompile Include="program\hikanyan_library\runtime\behaviour.cpp" />
     <ClCompile Include="program\hikanyan_library\runtime\component\box_collider.cpp" />
     <ClCompile Include="program\hikanyan_library\runtime\component\component.cpp" />
+    <ClCompile Include="program\hikanyan_library\runtime\component\object\game_object.cpp" />
     <ClCompile Include="program\hikanyan_library\runtime\component\object\object.cpp" />
     <ClCompile Include="program\hikanyan_library\runtime\mono_behaviour.cpp" />
     <ClCompile Include="program\library\json11.cpp" />
@@ -363,6 +364,7 @@
     <ClInclude Include="program\hikanyan_library\runtime\behaviour.h" />
     <ClInclude Include="program\hikanyan_library\runtime\component\box_collider.h" />
     <ClInclude Include="program\hikanyan_library\runtime\component\component.h" />
+    <ClInclude Include="program\hikanyan_library\runtime\component\object\game_object.h" />
     <ClInclude Include="program\hikanyan_library\runtime\component\object\object.h" />
     <ClInclude Include="program\hikanyan_library\runtime\mono_behaviour.h" />
     <ClInclude Include="program\library\json11.hpp" />
