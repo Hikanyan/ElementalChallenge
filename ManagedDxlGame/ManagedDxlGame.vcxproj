@@ -319,10 +319,11 @@
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="program\hikanyan_library\runtime\behaviour.cpp" />
-    <ClCompile Include="program\hikanyan_library\runtime\component\box_collider.cpp" />
+    <ClCompile Include="program\hikanyan_library\runtime\component\box_collider_2d.cpp" />
     <ClCompile Include="program\hikanyan_library\runtime\component\component.cpp" />
     <ClCompile Include="program\hikanyan_library\runtime\component\object\game_object.cpp" />
     <ClCompile Include="program\hikanyan_library\runtime\component\object\object.cpp" />
+    <ClCompile Include="program\hikanyan_library\runtime\component\rigidbody_2d.cpp" />
     <ClCompile Include="program\hikanyan_library\runtime\mono_behaviour.cpp" />
     <ClCompile Include="program\library\json11.cpp" />
     <ClCompile Include="program\library\tnl_font_texture.cpp" />
@@ -362,10 +363,11 @@
     <ClInclude Include="program\game\system\list.h" />
     <ClInclude Include="program\game\system\singleton.h" />
     <ClInclude Include="program\hikanyan_library\runtime\behaviour.h" />
-    <ClInclude Include="program\hikanyan_library\runtime\component\box_collider.h" />
+    <ClInclude Include="program\hikanyan_library\runtime\component\box_collider_2d.h" />
     <ClInclude Include="program\hikanyan_library\runtime\component\component.h" />
     <ClInclude Include="program\hikanyan_library\runtime\component\object\game_object.h" />
     <ClInclude Include="program\hikanyan_library\runtime\component\object\object.h" />
+    <ClInclude Include="program\hikanyan_library\runtime\component\rigidbody_2d.h" />
     <ClInclude Include="program\hikanyan_library\runtime\mono_behaviour.h" />
     <ClInclude Include="program\library\json11.hpp" />
     <ClInclude Include="program\library\stb_image.h" />
