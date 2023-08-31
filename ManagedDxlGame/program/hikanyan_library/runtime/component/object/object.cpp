@@ -1,5 +1,5 @@
 ﻿#include "object.h"
-
+#include "game_object.h"
 // 静的メンバの初期化
 int object::nextID = 1;
 

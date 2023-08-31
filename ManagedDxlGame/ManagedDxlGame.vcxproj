@@ -166,7 +166,7 @@
     <ClCompile Include="program\dxlib_ext\dxlib_ext_mesh.cpp" />
     <ClCompile Include="program\dxlib_ext\dxlib_ext_texture.cpp" />
     <ClCompile Include="program\dxlib_ext\OBJLoader.cpp" />
-    <ClCompile Include="program\game\entity\enemy\enemy.cpp" />
+    <ClCompile Include="program\game\entity\enemy\game_enemy.cpp" />
     <ClCompile Include="program\game\entity\entity.cpp" />
     <ClCompile Include="program\game\entity\entity_controller.cpp" />
     <ClCompile Include="program\game\entity\player\game_player.cpp" />
@@ -354,7 +354,7 @@
     <ClInclude Include="program\dxlib_ext\dxlib_ext_render_param.h" />
     <ClInclude Include="program\dxlib_ext\dxlib_ext_texture.h" />
     <ClInclude Include="program\dxlib_ext\OBJLoader.h" />
-    <ClInclude Include="program\game\entity\enemy\enemy.h" />
+    <ClInclude Include="program\game\entity\enemy\game_enemy.h" />
     <ClInclude Include="program\game\entity\entity.h" />
     <ClInclude Include="program\game\entity\entity_controller.h" />
     <ClInclude Include="program\game\entity\player\game_player.h" />

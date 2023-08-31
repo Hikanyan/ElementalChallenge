@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include <string>
-#include <vector>
-
+#include "../dxlib_ext/dxlib_ext.h"
 /*
  *IDの作成・取得
  *名前の作成
@@ -15,9 +14,9 @@ public:
     virtual ~object() {}
     object(const std::string& name) : id(instantiateID()), name(name) {}
 
-    virtual void draw();
-    virtual void gameStart();
-    virtual void update(float delta_time);
+    // virtual void draw();
+    // virtual void game_start();
+    // virtual void update(float delta_time);
 
     int getID() const { return id; }
     const std::string& getName() const { return name; }
