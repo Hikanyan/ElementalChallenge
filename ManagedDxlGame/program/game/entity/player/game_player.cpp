@@ -1,10 +1,5 @@
 ﻿#include "game_player.h"
 
-void game_player::draw()
-{
-    DrawBoxEx(entityTransform.position, entityTransform.scale.x, entityTransform.scale.y, false);
-}
-
 float g_player_timer = 0;
 float g_player_flashing_timer = 0.5;
 bool g_player_flashing_flag;
@@ -15,6 +10,13 @@ int g_player_num_handle_up[4];
 int g_player_num_handle_left[4];
 int g_player_num_handle_right[4];
 int g_player_num_handle_num;
+
+void game_player::draw()
+{
+    DrawBoxEx(entityTransform.position, entityTransform.scale.x, entityTransform.scale.y, false);
+    DrawRotaGraphF(entityTransform.position.x, entityTransform.position.y, 1, 0, g_player_num_handle_down[g_player_num_handle_num], true);
+}
+
 
 void game_player::gameStart()
 {
@@ -41,7 +43,7 @@ void game_player::update(float delta_time)
     }
 
     
-    DrawRotaGraphF(entityTransform.position.x, entityTransform.position.y, 1, 0, g_player_num_handle_down[g_player_num_handle_num], true);
+    
     
     //プレイヤーの座標+-scale/2にすることで、プレイヤーが画面外に出ないようにする
     if (entityTransform.position.x - (entityTransform.scale.x / 2) > 0 && tnl::Input::IsKeyDown(eKeys::KB_A))
