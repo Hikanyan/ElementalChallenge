@@ -3,40 +3,92 @@
 #include "../entity/entity.h"
 #include "../entity/entity_controller.h"
 
-//Gameの状態管理を行う
-// Sceneの遷移、Player、Enemy、Itemの生成、削除などを行う
-//ファザードパターンを使用する
-//Singletonを使用する
-
-//ゲームの状態を表す
+// ゲームの状態を表す
 enum class GameState {
-    //ゲームの初期化
+    // ゲームの初期化
     Init,
-    //ゲームのメインループ
+    // ゲームのメインループ
     Main,
-    //ゲームの終了
+    // ゲームの終了
     End
 };
 
-void game_manager::gameStart() {
-    //ゲームの初期化
-    //ゲームの状態をInitにする
-    //ゲームの初期化を行う
-    //ゲームの初期化が終わったらゲームの状態をMainにする
-    entity_controller::getInstance()->gameStart();
-}
-void game_manager::gameMain(float delta_time) {
-    //ゲームのメインループ
-    //ゲームの状態がMainの間はゲームのメインループを回す
-    //ゲームのメインループが終わったらゲームの状態をEndにする
+enum class GameScene
+{
+    Title,
+    InGame,
+    Result
+};
 
+GameState current_g_game_state = GameState::Init;
+GameScene game_scene = GameScene::Title;
+
+void game_manager::gameStart() {
+    // ゲームの初期化
+    // ゲームの状態をInitにする
+    current_g_game_state = GameState::Init;
+    initGame();  // ゲームの初期化を行う
+    current_g_game_state = GameState::Main;  // ゲームの初期化が終わったらゲームの状態をMainにする
+}
+
+void game_manager::gameMain(float delta_time) {
+    // ゲームのメインループ
+    switch (game_scene) {
+    case GameScene::Title:
+        sceneTitle(delta_time);
+        break;
+    case GameScene::InGame:
+        scenePlay(delta_time);
+        break;
+    }
+}
+
+void game_manager::gameEnd() {
+    // ゲームの終了処理
+    //endGame();
+    // ゲームの状態をInitにする
+    current_g_game_state = GameState::Init;
+}
+
+
+
+void game_manager::initGame()
+{
+    //初期化
+    //画像読み込み、サウンド読み込み、
+}
+void game_manager::sceneTitle(float delta_time)
+{
+    //タイトル背景
+    //Enter押したら次の
+}
+
+void game_manager::scenePlay(float delta_time)
+{
+    // ゲームのメインループ処理
     entity_controller::getInstance()->update(delta_time);
     entity_controller::getInstance()->draw();
-    
-}
-void game_manager::gameEnd() {
-    //ゲームの終了
-    //ゲームの状態がEndの間はゲームの終了処理を行う
-    //ゲームの終了処理が終わったらゲームの状態をInitにする
+    // ゲームの終了条件をチェックする（例: プレイヤーが死亡した場合）
+    if (isGameOverConditionMet()) {
+        current_g_game_state = GameState::End;
+    }
 }
 
+
+void game_manager::endGame()
+{
+    //ゲームを終了させてTitleに戻す
+}
+bool game_manager::isGameOverConditionMet() {
+    // プレイヤーが死亡したかどうかのチェック
+    // if (playerIsDead()) {
+    //     return true;
+    // }
+
+    // 特定の目標が達成されたかどうかのチェック
+    // if (isObjectiveAchieved()) {
+    //     return true;
+    // }
+
+    return false; // 終了条件が満たされていない場合は false を返す
+}

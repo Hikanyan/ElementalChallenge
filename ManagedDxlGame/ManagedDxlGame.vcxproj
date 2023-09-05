@@ -171,6 +171,8 @@
     <ClCompile Include="program\game\entity\entity_controller.cpp" />
     <ClCompile Include="program\game\entity\player\game_player.cpp" />
     <ClCompile Include="program\game\gm_main.cpp" />
+    <ClCompile Include="program\game\Scene\Scene.cpp" />
+    <ClCompile Include="program\game\Scene\SceneManager.cpp" />
     <ClCompile Include="program\game\system\game_manager.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -359,6 +361,8 @@
     <ClInclude Include="program\game\entity\entity_controller.h" />
     <ClInclude Include="program\game\entity\player\game_player.h" />
     <ClInclude Include="program\game\gm_main.h" />
+    <ClInclude Include="program\game\Scene\Scene.h" />
+    <ClInclude Include="program\game\Scene\SceneManager.h" />
     <ClInclude Include="program\game\system\game_manager.h" />
     <ClInclude Include="program\game\system\list.h" />
     <ClInclude Include="program\game\system\singleton.h" />

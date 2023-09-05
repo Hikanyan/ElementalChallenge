@@ -24,7 +24,7 @@ public:
     {
         if (CurrentState == MovementState::OnGround)
         {
-            velocity.y = -8;
+            velocity.y = -8.0f;
             CurrentState = MovementState::Jumping;
         }
     }
