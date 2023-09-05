@@ -4,5 +4,5 @@
 class behaviour:public component
 {
 public:
-    
+    bool enabled();
 };

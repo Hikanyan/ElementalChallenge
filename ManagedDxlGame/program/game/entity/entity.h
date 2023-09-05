@@ -4,6 +4,8 @@
 class entity
 {
 public:
+    virtual ~entity() = default;
+
     entity(int health, int damage) : health(health), damage(damage)
     {
     }
@@ -13,6 +15,12 @@ public:
     virtual void gameStart() = 0;
     virtual void update(float delta_time) = 0;
 
+    // 重力を処理
+    void gravity(float delta_time)
+    {
+        velocity.y += gravity_volume * delta_time;
+        entityTransform.position += velocity * delta_time * 60.0f;
+    }
     virtual void attack(entity* target)
     {
         target->receiveDamage(damage);
@@ -40,6 +48,7 @@ protected:
     int health;
     int damage;
     int move_speed;
-
     transform entityTransform;
+    tnl::Vector3 velocity;
+    float gravity_volume;
 };
