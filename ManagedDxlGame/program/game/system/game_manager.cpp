@@ -11,8 +11,8 @@ float g_title_menu_timer;
 float g_title_menu_flashing_timer = 1;
 bool g_title_menu_flashing_flag;
 const std::string TITLE_MENU_STR = "Enterを押してください。";
-const tnl::Vector3 TITLE_MENU_POS = { DXE_WINDOW_WIDTH / 2 - 130, DXE_WINDOW_HEIGHT - (DXE_WINDOW_HEIGHT / 5), 0 };
-const tnl::Vector3 TITLE_MENU_LOGO_POS = { DXE_WINDOW_WIDTH / 2, DXE_WINDOW_HEIGHT / 2, 0 };
+const tnl::Vector3 TITLE_MENU_POS = {DXE_WINDOW_WIDTH / 2 - 130, DXE_WINDOW_HEIGHT - (DXE_WINDOW_HEIGHT / 5), 0};
+const tnl::Vector3 TITLE_MENU_LOGO_POS = {DXE_WINDOW_WIDTH / 2, DXE_WINDOW_HEIGHT / 2, 0};
 
 // ゲームの状態を表す
 enum class GameState
@@ -77,19 +77,21 @@ void game_manager::initGame()
 
     snd_title_menu_bgm = LoadSoundMem("sound/test_bgm.wav");
     snd_title_menu_se = LoadSoundMem("sound/test_se.wav");
-    
+
     PlaySoundMem(snd_title_menu_bgm, DX_PLAYTYPE_LOOP);
-    
+
+    entity_controller::getInstance()->gameStart();
 }
 
 void game_manager::sceneTitle(float delta_time)
 {
     g_title_menu_timer += delta_time;
-    if (g_title_menu_timer > g_title_menu_flashing_timer) {
+    if (g_title_menu_timer > g_title_menu_flashing_timer)
+    {
         g_title_menu_flashing_flag = !g_title_menu_flashing_flag;
         g_title_menu_timer = 0;
     }
-    
+
     //タイトル背景
     //Enter押したら次の
     DrawExtendGraphF(0, 0, DXE_WINDOW_WIDTH, DXE_WINDOW_HEIGHT, g_Graphics_title_menu_background, true);
@@ -97,14 +99,16 @@ void game_manager::sceneTitle(float delta_time)
     DrawRotaGraphF(TITLE_MENU_LOGO_POS.x, TITLE_MENU_LOGO_POS.y, 1, 0, g_Graphics_title_menu_logo, true);
 
     SetFontSize(100);
-    if (g_title_menu_flashing_flag) {
+    if (g_title_menu_flashing_flag)
+    {
         SetFontSize(25);
         DrawStringEx(TITLE_MENU_POS.x, TITLE_MENU_POS.y, -1, TITLE_MENU_STR.c_str());
     }
-    
-    if (tnl::Input::IsKeyDownTrigger(eKeys::KB_RETURN)) {
+
+    if (tnl::Input::IsKeyDownTrigger(eKeys::KB_RETURN))
+    {
         game_scene = GameScene::InGame;
-        
+
         PlaySoundMem(snd_title_menu_se, DX_PLAYTYPE_BACK);
         StopSoundMem(snd_title_menu_bgm);
     }
@@ -115,6 +119,7 @@ void game_manager::scenePlay(float delta_time)
     // ゲームのメインループ処理
     entity_controller::getInstance()->update(delta_time);
     entity_controller::getInstance()->draw();
+
     // ゲームの終了条件をチェックする（例: プレイヤーが死亡した場合）
     if (isGameOverConditionMet())
     {

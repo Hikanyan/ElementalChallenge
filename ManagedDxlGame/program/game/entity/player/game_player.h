@@ -29,6 +29,7 @@ public:
         }
     }
 private:
+    static void playerLoadDivGraph();
     enum class MovementState
     {
         OnGround,
