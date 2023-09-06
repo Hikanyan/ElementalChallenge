@@ -14,7 +14,8 @@ public:
     virtual void draw() = 0;
     virtual void gameStart() = 0;
     virtual void update(float delta_time) = 0;
-
+    
+    
     // 重力を処理
     void gravity(float delta_time)
     {
@@ -35,7 +36,6 @@ public:
     {
         return health;
     }
-
     class transform
     {
     public:

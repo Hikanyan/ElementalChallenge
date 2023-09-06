@@ -6,7 +6,7 @@
 
 namespace tnl {
 
-	// “_‚Æ‹éŒ`‚ÌÕ“Ë”»’è
+	// ç‚¹ã¨çŸ©å½¢ã®è¡çªåˆ¤å®š
 	bool IsIntersectPointRect(const int point_x, const int point_y, const int rect_x, const int rect_y, const int rect_size_x, const int rect_size_y) {
 		int sx = rect_x - (rect_size_x >> 1);
 		int sy = rect_y - (rect_size_y >> 1);
@@ -19,7 +19,7 @@ namespace tnl {
 		return true;
 	}
 
-	// ‹éŒ`‚Æ‹éŒ`
+	// çŸ©å½¢ã¨çŸ©å½¢
 	bool IsIntersectRectPrimitive(const int a_left, const int a_right, const int a_top, const int a_bottom,
 		const int b_left, const int b_right, const int b_top, const int b_bottom) {
 		if (a_right < b_left) return false;
@@ -29,7 +29,7 @@ namespace tnl {
 		return true;
 	}
 
-	// ‹éŒ`‚Æ‹éŒ`
+	// çŸ©å½¢ã¨çŸ©å½¢
 	bool IsIntersectRect(const int a_rect_x, const int a_rect_y, const int a_rect_size_w, const int a_rect_size_h,
 		const int b_rect_x, const int b_rect_y, const int b_rect_size_w, const int b_rect_size_h) {
 
@@ -46,7 +46,7 @@ namespace tnl {
 		return IsIntersectRectPrimitive(a_left, a_right, a_top, a_bottom, b_left, b_right, b_top, b_bottom);
 	}
 
-	// work... AABB ‚Æ AABB‚Ì”»’è
+	// work... AABB ã¨ AABBã®åˆ¤å®š
 	bool IsIntersectAABB(const tnl::Vector3& a, const tnl::Vector3& a_size, const tnl::Vector3& b, const tnl::Vector3& b_size)
 	{
 		tnl::Vector3 a_max = tnl::ToMaxAABB(a, a_size);
@@ -60,7 +60,7 @@ namespace tnl {
 	}
 
 
-	// ‹éŒ`‚Æ‹éŒ`‚ÌÕ“ËŒŸ’m & À•W•â³
+	// çŸ©å½¢ã¨çŸ©å½¢ã®è¡çªæ¤œçŸ¥ & åº§æ¨™è£œæ­£
 	int IsIntersectRectToCorrectPosition(tnl::Vector3& a_now, const tnl::Vector3 &a_prev, const int a_rect_size_w, const int a_rect_size_h,
 		const tnl::Vector3& b, const int b_rect_size_w, const int b_rect_size_h, const float correct_space) {
 
@@ -77,19 +77,19 @@ namespace tnl {
 
 		if (0 == n) {
 			float y = (a_now - a_prev).y;
-			// ‰ºŒü‚«‚ÉˆÚ“®‚µ‚Ä‚¢‚éê‡‚Íã‚É•â³
+			// ä¸‹å‘ãã«ç§»å‹•ã—ã¦ã„ã‚‹å ´åˆã¯ä¸Šã«è£œæ­£
 			if (y >= 0) {
 				a_now.y = b.y - (b_rect_size_h / 2) - (a_rect_size_h / 2) - correct_space;
 				return CORRECT_UP;
 			}
-			// ãŒü‚«‚ÉˆÚ“®‚µ‚Ä‚¢‚éê‡‚Í¶‰E‚Ç‚¿‚ç‚©‚É•â³
+			// ä¸Šå‘ãã«ç§»å‹•ã—ã¦ã„ã‚‹å ´åˆã¯å·¦å³ã©ã¡ã‚‰ã‹ã«è£œæ­£
 			else {
-				// ‰E‚É•â³
+				// å³ã«è£œæ­£
 				if (a_now.x > b.x) {
 					a_now.x = b.x + (b_rect_size_w / 2) + (a_rect_size_w / 2) + correct_space;
 					return CORRECT_RIGHT;
 				}
-				// ¶‚É•â³
+				// å·¦ã«è£œæ­£
 				else {
 					a_now.x = b.x - (b_rect_size_w / 2) - (a_rect_size_w / 2) - correct_space;
 					return CORRECT_LEFT;
@@ -98,19 +98,19 @@ namespace tnl {
 		}
 		else if (2 == n) {
 			float y = (a_now - a_prev).y;
-			// ãŒü‚«‚ÉˆÚ“®‚µ‚Ä‚¢‚éê‡‚Í‰º‚É•â³
+			// ä¸Šå‘ãã«ç§»å‹•ã—ã¦ã„ã‚‹å ´åˆã¯ä¸‹ã«è£œæ­£
 			if (y <= 0) {
 				a_now.y = b.y + (b_rect_size_h / 2) + (a_rect_size_h / 2) + correct_space;
 				return CORRECT_DOWN;
 			}
-			// ãŒü‚«‚ÉˆÚ“®‚µ‚Ä‚¢‚éê‡‚Í¶‰E‚Ç‚¿‚ç‚©‚É•â³
+			// ä¸Šå‘ãã«ç§»å‹•ã—ã¦ã„ã‚‹å ´åˆã¯å·¦å³ã©ã¡ã‚‰ã‹ã«è£œæ­£
 			else {
-				// ‰E‚É•â³
+				// å³ã«è£œæ­£
 				if (a_now.x > b.x) {
 					a_now.x = b.x + (b_rect_size_w / 2) + (a_rect_size_w / 2) + correct_space;
 					return CORRECT_RIGHT;
 				}
-				// ¶‚É•â³
+				// å·¦ã«è£œæ­£
 				else {
 					a_now.x = b.x - (b_rect_size_w / 2) - (a_rect_size_w / 2) - correct_space;
 					return CORRECT_LEFT;
@@ -119,19 +119,19 @@ namespace tnl {
 		}
 		else if (1 == n) {
 			float x = (a_now - a_prev).x;
-			// ¶Œü‚«‚ÉˆÚ“®‚µ‚Ä‚¢‚éê‡‚Í‰E‚É•â³
+			// å·¦å‘ãã«ç§»å‹•ã—ã¦ã„ã‚‹å ´åˆã¯å³ã«è£œæ­£
 			if (x <= 0) {
 				a_now.x = b.x + (b_rect_size_w / 2) + (a_rect_size_w / 2) + correct_space;
 				return CORRECT_RIGHT;
 			}
-			// ‰EŒü‚«‚ÉˆÚ“®‚µ‚Ä‚¢‚éê‡‚Íã‰º‚Ç‚¿‚ç‚©‚É•â³
+			// å³å‘ãã«ç§»å‹•ã—ã¦ã„ã‚‹å ´åˆã¯ä¸Šä¸‹ã©ã¡ã‚‰ã‹ã«è£œæ­£
 			else {
-				// ã‚É•â³
+				// ä¸Šã«è£œæ­£
 				if (a_now.y < b.y) {
 					a_now.y = b.y - (b_rect_size_h / 2) - (a_rect_size_h / 2) - correct_space;
 					return CORRECT_UP;
 				}
-				// ‰º‚É•â³
+				// ä¸‹ã«è£œæ­£
 				else {
 					a_now.y = b.y + (b_rect_size_h / 2) + (a_rect_size_h / 2) + correct_space;
 					return CORRECT_DOWN;
@@ -140,19 +140,19 @@ namespace tnl {
 		}
 		else if (3 == n) {
 			float x = (a_now - a_prev).x;
-			// ‰EŒü‚«‚ÉˆÚ“®‚µ‚Ä‚¢‚éê‡‚Í¶‚É•â³
+			// å³å‘ãã«ç§»å‹•ã—ã¦ã„ã‚‹å ´åˆã¯å·¦ã«è£œæ­£
 			if (x >= 0) {
 				a_now.x = b.x - (b_rect_size_w / 2) - (a_rect_size_w / 2) - correct_space;
 				return CORRECT_LEFT;
 			}
-			// ¶Œü‚«‚ÉˆÚ“®‚µ‚Ä‚¢‚éê‡‚Íã‰º‚Ç‚¿‚ç‚©‚É•â³
+			// å·¦å‘ãã«ç§»å‹•ã—ã¦ã„ã‚‹å ´åˆã¯ä¸Šä¸‹ã©ã¡ã‚‰ã‹ã«è£œæ­£
 			else {
-				// ã‚É•â³
+				// ä¸Šã«è£œæ­£
 				if (a_now.y < b.y) {
 					a_now.y = b.y - (b_rect_size_h / 2) - (a_rect_size_h / 2) - correct_space;
 					return CORRECT_UP;
 				}
-				// ‰º‚É•â³
+				// ä¸‹ã«è£œæ­£
 				else {
 					a_now.y = b.y + (b_rect_size_h / 2) + (a_rect_size_h / 2) + correct_space;
 					return CORRECT_DOWN;
@@ -190,7 +190,7 @@ namespace tnl {
 	bool IsIntersectLine2D(const Vector3& p1, const Vector3& p2, const Vector3& p3, const Vector3& p4)
 	{
 
-		// x À•W‚É‚æ‚éƒ`ƒFƒbƒN
+		// x åº§æ¨™ã«ã‚ˆã‚‹ãƒã‚§ãƒƒã‚¯
 		if (p1.x >= p2.x) {
 			if ((p1.x < p3.x && p1.x < p4.x) || (p2.x > p3.x && p2.x > p4.x)) {
 				return false;
@@ -202,7 +202,7 @@ namespace tnl {
 			}
 		}
 
-		// y À•W‚É‚æ‚éƒ`ƒFƒbƒN
+		// y åº§æ¨™ã«ã‚ˆã‚‹ãƒã‚§ãƒƒã‚¯
 		if (p1.y >= p2.y) {
 			if ((p1.y < p3.y && p1.y < p4.y) || (p2.y > p3.y && p2.y > p4.y)) {
 				return false;
@@ -310,7 +310,7 @@ namespace tnl {
 	//----------------------------------------------------------------------------------------------
 	bool IsIntersectRayOBB(const Vector3& pos, const Vector3& dir, const Vector3& aabb_max, const Vector3& aabb_min, const Matrix& obb_rot, Vector3& intersect_pos ) {
 
-		// Œõü‚ğ‹«ŠEƒ{ƒbƒNƒX‚Ì‹óŠÔ‚ÖˆÚ“®
+		// å…‰ç·šã‚’å¢ƒç•Œãƒœãƒƒã‚¯ã‚¹ã®ç©ºé–“ã¸ç§»å‹•
 		Matrix invMat = Matrix::Inverse(obb_rot);
 
 		Vector3 p_l, dir_l;
@@ -320,7 +320,7 @@ namespace tnl {
 		invMat._43 = 0.0f;
 		dir_l = Vector3::TransformCoord(dir, invMat);
 
-		// Œğ·”»’è
+		// äº¤å·®åˆ¤å®š
 		float p[3], d[3], min[3], max[3];
 		memcpy(p, &p_l, sizeof(Vector3));
 		memcpy(d, &dir_l, sizeof(Vector3));
@@ -333,11 +333,11 @@ namespace tnl {
 		for (int i = 0; i < 3; ++i) {
 			if (fabs(d[i]) < FLT_EPSILON) {
 				if (p[i] < min[i] || p[i] > max[i])
-					return false; // Œğ·‚µ‚Ä‚¢‚È‚¢
+					return false; // äº¤å·®ã—ã¦ã„ãªã„
 			}
 			else {
-				// ƒXƒ‰ƒu‚Æ‚Ì‹——£‚ğZo
-				// t1‚ª‹ßƒXƒ‰ƒuAt2‚ª‰“ƒXƒ‰ƒu‚Æ‚Ì‹——£
+				// ã‚¹ãƒ©ãƒ–ã¨ã®è·é›¢ã‚’ç®—å‡º
+				// t1ãŒè¿‘ã‚¹ãƒ©ãƒ–ã€t2ãŒé ã‚¹ãƒ©ãƒ–ã¨ã®è·é›¢
 				float odd = 1.0f / d[i];
 				float t1 = (min[i] - p[i]) * odd;
 				float t2 = (max[i] - p[i]) * odd;
@@ -348,13 +348,13 @@ namespace tnl {
 				if (t1 > t) t = t1;
 				if (t2 < t_max) t_max = t2;
 
-				// ƒXƒ‰ƒuŒğ·ƒ`ƒFƒbƒN
+				// ã‚¹ãƒ©ãƒ–äº¤å·®ãƒã‚§ãƒƒã‚¯
 				if (t >= t_max)
 					return false;
 			}
 		}
 
-		// Œğ“_
+		// äº¤ç‚¹
 		intersect_pos = pos + ( dir * t ) ;
 
 		return true;

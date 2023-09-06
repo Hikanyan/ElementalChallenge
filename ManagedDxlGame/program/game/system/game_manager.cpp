@@ -5,11 +5,17 @@
 
 int g_Graphics_title_menu_background;
 int g_Graphics_title_menu_logo;
+int g_Graphics_play_background_1;
+int g_Graphics_play_cloud;
+
+float g_Graphics_play_cloud_pos;
+float cloud_speed = 2;
 int snd_title_menu_bgm;
 int snd_title_menu_se;
 float g_title_menu_timer;
 float g_title_menu_flashing_timer = 1;
 bool g_title_menu_flashing_flag;
+
 const std::string TITLE_MENU_STR = "Enterを押してください。";
 const tnl::Vector3 TITLE_MENU_POS = {DXE_WINDOW_WIDTH / 2 - 130, DXE_WINDOW_HEIGHT - (DXE_WINDOW_HEIGHT / 5), 0};
 const tnl::Vector3 TITLE_MENU_LOGO_POS = {DXE_WINDOW_WIDTH / 2, DXE_WINDOW_HEIGHT / 2, 0};
@@ -75,6 +81,8 @@ void game_manager::initGame()
     g_Graphics_title_menu_logo = LoadGraph("graphics/ElementalChallenge_logos_transparent.png");
     g_Graphics_title_menu_background = LoadGraph("graphics/purple_pink.png");
 
+    g_Graphics_play_background_1 = LoadGraph("graphics/aozora.jpg");
+    g_Graphics_play_cloud = LoadGraph("graphics/kumo.png");
     snd_title_menu_bgm = LoadSoundMem("sound/test_bgm.wav");
     snd_title_menu_se = LoadSoundMem("sound/test_se.wav");
 
@@ -116,6 +124,18 @@ void game_manager::sceneTitle(float delta_time)
 
 void game_manager::scenePlay(float delta_time)
 {
+    // 雲の位置を計算
+    g_Graphics_play_cloud_pos += cloud_speed;
+    
+    if (g_Graphics_play_cloud_pos-700 > DXE_WINDOW_WIDTH)
+    {
+        g_Graphics_play_cloud_pos = -700;
+    }
+    DrawExtendGraphF(0, 0, DXE_WINDOW_WIDTH, DXE_WINDOW_HEIGHT, g_Graphics_play_background_1, true);
+
+    DrawGraph(g_Graphics_play_cloud_pos, DXE_WINDOW_HEIGHT * 0.1, g_Graphics_play_cloud, true);
+
+
     // ゲームのメインループ処理
     entity_controller::getInstance()->update(delta_time);
     entity_controller::getInstance()->draw();
