@@ -64,5 +64,14 @@ void entity_controller::update(float delta_time)
     {
         entityList[i]->gravity(delta_time);
         entityList[i]->update(delta_time);
+        // 各エンティティとの当たり判定をチェック
+        for (int j = 0; j < entityList.size(); j++)
+        {
+            if (i != j && isIntersect(entityList[i], entityList[j]))
+            {
+                // エンティティiとエンティティjが衝突した場合の処理をここで実行
+                // 例えば、ダメージを与えたり、エンティティを削除したりすることができます
+            }
+        }
     }
 }

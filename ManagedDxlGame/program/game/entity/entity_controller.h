@@ -11,7 +11,12 @@ public:
     void gameStart();
     void draw();
     void update(float delta_time);
-    
+    bool isIntersect(entity* entityA, entity* entityB)
+    {
+        // ここでentityAとentityBの当たり判定を行う
+        //return entityA->isIntersect(entityB);
+        return false;
+    }
     void attack(entity* attacker, entity* target) {
         attacker->attack(target);
     }

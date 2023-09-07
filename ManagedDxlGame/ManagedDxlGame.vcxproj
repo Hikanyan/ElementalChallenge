@@ -320,6 +320,7 @@
       <SDLCheck>true</SDLCheck>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="program\game\system\user_interface.cpp" />
     <ClCompile Include="program\hikanyan_library\runtime\behaviour.cpp" />
     <ClCompile Include="program\hikanyan_library\runtime\component\box_collider_2d.cpp" />
     <ClCompile Include="program\hikanyan_library\runtime\component\component.cpp" />
@@ -366,6 +367,7 @@
     <ClInclude Include="program\game\system\game_manager.h" />
     <ClInclude Include="program\game\system\list.h" />
     <ClInclude Include="program\game\system\singleton.h" />
+    <ClInclude Include="program\game\system\user_interface.h" />
     <ClInclude Include="program\hikanyan_library\runtime\behaviour.h" />
     <ClInclude Include="program\hikanyan_library\runtime\component\box_collider_2d.h" />
     <ClInclude Include="program\hikanyan_library\runtime\component\component.h" />
